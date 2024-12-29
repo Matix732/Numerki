@@ -18,11 +18,11 @@ b = np.array([1, 2, 3, 4, 5, 6, 7])
 # metodę eliminacji Gaussa-Crouta.
 
 # Opcja #1 - bogactwo bibliotek Pythona
-def solve_matrix_scipy():
+def solve_matrix_scipy(A,b):
     # Skorzystanie z biblioteki SciPy,
     # oraz funkcji spsolve przeznaczonej do rozwiązywania układów z macierzami rzadkimi.
     x = spsolve(A, b)
-    print("Rozwiązanie układu równań:", x)
+    return x
 
 # Opcja #2 - własna implementacja algorytmu
 def gauss_crout(A, b):
@@ -53,6 +53,8 @@ def gauss_crout(A, b):
     return x
 
 # Wywołanie funkcji
-
 C = gauss_crout(A, b)
-print("Rozwiązanie układu równań: ", C)
+C1 = solve_matrix_scipy(A, b)
+print("Rozwiązanie układu równań:")
+print("1) Rozwiązanie układu równań funkcją z biblioteki SciPy:\n", C1)
+print("2) Rozkład LU metodą Gaussa-Crouta:\n", C)
